@@ -1,0 +1,9 @@
+services:
+    server:
+        build: server
+    client:
+        build: client
+        ports:
+            - "8009:8009"
+        links:
+            - server
