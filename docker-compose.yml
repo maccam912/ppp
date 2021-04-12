@@ -2,12 +2,12 @@ services:
     server:
         build: server
         ports:
-            - "8080:8080"
+          - "8080:8080"
     client:
         build: client
         depends_on:
-            - server
+          - server
         ports:
-            - "8009:8009"
+          - "8009:8009"
         links:
-            - server
+          - server
