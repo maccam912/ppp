@@ -1,11 +1,11 @@
 version: "3.6"
 services:
   server:
-    build: maccam912/ppp-server:release-1.0.0
+    image: maccam912/ppp-server:release-1.0.0
     ports:
       - "8080:8080"
   client:
-  build: maccam912/ppp-client:release-1.0.0
+    image: maccam912/ppp-client:release-1.0.0
     depends_on:
       - server
     ports:
