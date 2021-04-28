@@ -7,14 +7,26 @@ RUN apk add git
 
 WORKDIR /opt
 RUN git clone https://github.com/input-output-hk/plutus
-ENV WEEK "03" # Just to change something so the fetch and rebase runs
+# Just to change something so the fetch and rebase runs
+ENV WEEK=03 
 RUN cd plutus && git fetch && git rebase
 RUN cd plutus && git checkout 3aa86304e9bfc425667051a8a94db73fcdc38878
 
 WORKDIR /opt/plutus
 
-EXPOSE 8080
 
 RUN nix-shell --run "exit"
+WORKDIR /opt/plutus/plutus-playground-client
+# TODO this should not be done on build, create scripts to launch the processes
+RUN sed -i -e 's/localhost:8080/server:8080/g' default.nix 
+RUN sed -i -e 's/localhost:8080/server:8080/g' webpack.config.js
+RUN sed -i -e 's/--progress/--progress --host=0.0.0.0/g' package.json
+
+WORKDIR /opt/plutus
+RUN nix-shell --run "cd plutus-playground-client && npm install && plutus-playground-generate-purs && npm run purs:compile && npm run webpack"
+
+EXPOSE 8080
+EXPOSE 8009
 
 CMD nix-shell --run "cd plutus-playground-client && plutus-playground-server"
+# CMD nix-shell --run "cd plutus-playground-client && npm run start"

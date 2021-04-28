@@ -1,14 +1,22 @@
-version: "3.6"
+version: '3.6'
 services:
   server:
-    image: maccam912/ppp-server:release-0.9.0
+    image: arturictus/ppp:0.0.1
     ports:
-      - "8080:8080"
+      - '8080:8080'
+    command:
+      - nix-shell
+      - --run
+      - 'cd plutus-playground-client && plutus-playground-server'
   client:
-    image: maccam912/ppp-client:release-0.9.0
+    image: arturictus/ppp:0.0.1
+    command:
+      - nix-shell
+      - --run
+      - 'cd plutus-playground-client && npm run start'
     depends_on:
       - server
     ports:
-      - "8009:8009"
+      - '8009:8009'
     links:
       - server
