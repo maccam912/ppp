@@ -17,5 +17,5 @@ docker-compose -f docker-compose-week01.yml up
 ## Week 3
 
 ```
-docker-compose -f docker-compose-week01.yml up
+docker-compose -f docker-compose-week03.yml up
 ```
