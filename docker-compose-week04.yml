@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   server:
-    image: maccam912/ppp:0.0.4
+    image: maccam912/ppp:release-0.0.4
     ports:
       - '8080:8080'
     command:
@@ -9,7 +9,7 @@ services:
       - --run
       - 'cd plutus-playground-client && plutus-playground-server'
   client:
-    image: maccam912/ppp:0.0.4
+    image: maccam912/ppp:release-0.0.4
     command:
       - nix-shell
       - --run
