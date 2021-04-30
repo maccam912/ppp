@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  server:
+    image: maccam912/ppp-server:1.1.0
+    ports:
+      - '8080:8080'
+  client:
+    image: maccam912/ppp-client:1.1.0
+    depends_on:
+      - server
+    ports:
+      - '8009:8009'
+    links:
+      - server
