@@ -10,7 +10,7 @@ RUN git clone https://github.com/input-output-hk/plutus
 # Just to change something so the fetch and rebase runs
 ENV WEEK=03 
 RUN cd plutus && git fetch && git rebase
-RUN cd plutus && git checkout 3aa86304e9bfc425667051a8a94db73fcdc38878
+RUN cd plutus && git checkout 47bee0d683857655d60c230a8b25ab7058c54d55
 
 WORKDIR /opt/plutus
 
@@ -28,5 +28,5 @@ RUN nix-shell --run "cd plutus-playground-client && npm install && plutus-playgr
 EXPOSE 8080
 EXPOSE 8009
 
-CMD nix-shell --run "cd plutus-playground-client && plutus-playground-server"
+#CMD nix-shell --run "cd plutus-playground-client && plutus-playground-server"
 # CMD nix-shell --run "cd plutus-playground-client && npm run start"
