@@ -10,7 +10,7 @@ RUN git clone https://github.com/input-output-hk/plutus
 # Just to change something so the fetch and rebase runs
 ENV WEEK=03 
 RUN cd plutus && git fetch && git rebase
-RUN cd plutus && git checkout 0c3c310cab61dbff8cbc1998a3678b367be6815a
+RUN cd plutus && git checkout 476409eaee94141e2fe076a7821fc2fcdec5dfcb
 
 WORKDIR /opt/plutus
 
