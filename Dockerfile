@@ -8,7 +8,7 @@ RUN apk add git
 WORKDIR /opt
 RUN git clone https://github.com/input-output-hk/plutus
 # Just to change something so the fetch and rebase runs
-ENV WEEK=03 
+ENV WEEK=06 
 RUN cd plutus && git fetch && git rebase
 RUN cd plutus && git checkout 476409eaee94141e2fe076a7821fc2fcdec5dfcb
 
