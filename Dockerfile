@@ -19,7 +19,8 @@ WORKDIR /opt/plutus/plutus-playground-client
 # TODO this should not be done on build, create scripts to launch the processes
 RUN sed -i -e 's/localhost:8080/server:8080/g' default.nix 
 RUN sed -i -e 's/localhost:8080/server:8080/g' webpack.config.js
-RUN sed -i -e 's/--progress/--progress --host=0.0.0.0/g' package.json
+RUN sed -i -e 's/webpack-dev-server --progress/webpack-dev-server --host=0.0.0.0 --progress/g' package.json
+RUN sed -i -e 's/webpack-cli serve/webpack-cli serve --host=0.0.0.0/g' package.json
 
 WORKDIR /opt/plutus
 RUN nix-shell --run "cd plutus-playground-client && npm install && plutus-playground-generate-purs && npm run purs:compile && npm run webpack"
