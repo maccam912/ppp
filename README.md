@@ -1,6 +1,6 @@
 # Plutus Pioneers Program - Playground
 
-The dockerfiles are current for the right plutus commit for Week03 homework. I'll try to keep it up-to-date.
+The dockerfiles are current for the right plutus commit for Week06 homework. I'll try to keep it up-to-date.
 
 ## Build locally
 
@@ -19,3 +19,5 @@ docker-compose -f docker-compose-week01.yml up
 ```
 docker-compose -f docker-compose-week03.yml up
 ```
+
+etc.
