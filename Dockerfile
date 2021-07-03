@@ -6,7 +6,7 @@ RUN echo "trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdj
 RUN apk add git
 
 WORKDIR /opt
-ARG PLUTUS_GIT_COMMIT=ae35c4b8fe66dd626679bd2951bd72190e09a123
+ARG PLUTUS_GIT_COMMIT=ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4
 RUN git clone https://github.com/input-output-hk/plutus /opt/plutus && \
 	cd /opt/plutus && \
 	git checkout ${PLUTUS_GIT_COMMIT}
@@ -19,7 +19,7 @@ WORKDIR /opt/plutus/plutus-playground-client
 # TODO this should not be done on build, create scripts to launch the processes
 RUN sed -i -e 's/localhost:8080/server:8080/g' default.nix 
 RUN sed -i -e 's/localhost:8080/server:8080/g' webpack.config.js
-RUN sed -i -e 's/webpack-dev-server --progress/webpack-dev-server --host=0.0.0.0 --progress/g' package.json
+RUN sed -i -e 's/webpack-dev-server --pro§gress/webpack-dev-server --host=0.0.0.0 --progress/g' package.json
 RUN sed -i -e 's/webpack-cli serve/webpack-cli serve --host=0.0.0.0/g' package.json
 
 WORKDIR /opt/plutus
