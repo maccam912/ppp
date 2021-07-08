@@ -6,7 +6,7 @@ RUN echo "trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdj
 RUN apk add git
 
 WORKDIR /opt
-ARG PLUTUS_GIT_COMMIT=ae35c4b8fe66dd626679bd2951bd72190e09a123
+ARG PLUTUS_GIT_COMMIT=ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4
 RUN git clone https://github.com/input-output-hk/plutus /opt/plutus && \
 	cd /opt/plutus && \
 	git checkout ${PLUTUS_GIT_COMMIT}
